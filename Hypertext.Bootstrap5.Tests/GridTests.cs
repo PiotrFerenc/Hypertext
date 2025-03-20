@@ -7,9 +7,9 @@ public class GridTests
     [Fact]
     public void Test()
     {
-        var grid = Grid.Container(
-            Grid.Row(
-                Grid.Column(Html.Text("123"))
+        var grid = Layout.Grid.Container(
+            Layout.Grid.Row(
+                Layout.Grid.Column(Html.Text("123"))
             )
         );
         var tt = grid.Render();
