@@ -1,0 +1,25 @@
+# Dotnet artifacts
+bin/
+obj/
+*.user
+*.rsuser
+*.ide
+*.suo
+*.sqlite3
+*.sqlite
+*.ldb
+*.log
+*.pdb
+
+# Rider / JetBrains IDE files
+.idea/
+*.sln.iml
+*.DotSettings.user
+_ReSharper*/ 
+*.notatracker/
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+
+#General runtime experimental etc- ifnet opt or other waxing tmp_force
