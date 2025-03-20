@@ -23,4 +23,10 @@ public static class BootstrapConstants
     public const string H4 = "h4";
     public const string H5 = "h5";
     public const string H6 = "h6";
+    public const string Display1 = "display-1";
+    public const string Display2 = "display-2";
+    public const string Display3 = "display-3";
+    public const string Display4 = "display-4";
+    public const string Display5 = "display-5";
+    public const string Display6 = "display-6";
 }
