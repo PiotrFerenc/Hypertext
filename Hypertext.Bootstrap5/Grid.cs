@@ -4,7 +4,12 @@ public static class Layout
 {
     public static class Grid
     {
-        public static HtmlElement Container(params HtmlElement[] rows) => Html.Div(rows).WithClass(BootstrapConstants.ContainerClass);
+        public static class Containers
+        {
+            public static HtmlElement Container(params HtmlElement[] rows) => Html.Div(rows).WithClass(BootstrapConstants.ContainerClass);
+            public static HtmlElement Fluid(params HtmlElement[] rows) => Html.Div(rows).WithClass(BootstrapConstants.ContainerFluidClass);
+        }
+
         public static HtmlElement Row(params HtmlElement[] columns) => Html.Div(columns).WithClass(BootstrapConstants.RowClass);
         public static HtmlElement Column(params HtmlElement[] children) => Html.Div(children).WithClass(BootstrapConstants.ColumnClass);
         public static HtmlElement Column1(params HtmlElement[] children) => Html.Div(children).WithClass(BootstrapConstants.Column1Class);

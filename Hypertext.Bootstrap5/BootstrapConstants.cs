@@ -29,4 +29,5 @@ public static class BootstrapConstants
     public const string Display4 = "display-4";
     public const string Display5 = "display-5";
     public const string Display6 = "display-6";
+    public const string ContainerFluidClass = "container-fluid";
 }
