@@ -5,4 +5,16 @@ public static class BootstrapConstants
     public const string ContainerClass = "container";
     public const string RowClass = "row";
     public const string ColumnClass = "col";
+    public const string Column1Class = "col-1";
+    public const string Column2Class = "col-2";
+    public const string Column3Class = "col-3";
+    public const string Column4Class = "col-4";
+    public const string Column5Class = "col-5";
+    public const string Column6Class = "col-6";
+    public const string Column7Class = "col-7";
+    public const string Column8Class = "col-8";
+    public const string Column9Class = "col-9";
+    public const string Column10Class = "col-10";
+    public const string Column11Class = "col-11";
+    public const string Column12Class = "col-12";
 }
