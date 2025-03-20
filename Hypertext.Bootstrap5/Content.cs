@@ -17,5 +17,14 @@ public static class Content
         public static HtmlElement Display4(string text) => Html.H1(text).WithClass(BootstrapConstants.Display4);
         public static HtmlElement Display5(string text) => Html.H1(text).WithClass(BootstrapConstants.Display5);
         public static HtmlElement Display6(string text) => Html.H1(text).WithClass(BootstrapConstants.Display6);
+
+        public static HtmlElement Mark(string text) => Html.Mark(text);
+        public static HtmlElement Deleted(string text) => Html.Del(text);
+        public static HtmlElement Strikethrough(string text) => Html.S(text);
+        public static HtmlElement Inserted(string text) => Html.Ins(text);
+        public static HtmlElement Underline(string text) => Html.U(text);
+        public static HtmlElement Small(string text) => Html.Small(text);
+        public static HtmlElement Strong(string text) => Html.Strong(text);
+        public static HtmlElement Emphasized(string text) => Html.Em(text);
     }
 }

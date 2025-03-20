@@ -36,4 +36,12 @@ public static class Html
     public static HtmlElement Button(string text, Dictionary<string, string>? attributes = null) => Tag("button", attributes ?? new Dictionary<string, string>(), Text(text));
 
     public static HtmlElement Fragment(params HtmlElement[] children) => new HtmlFragment(children);
+    public static HtmlElement Mark(string text) => Tag("mark", Text(text));
+    public static HtmlElement Del(string text) => Tag("del", Text(text));
+    public static HtmlElement S(string text) => Tag("s", Text(text));
+    public static HtmlElement Ins(string text) => Tag("ins", Text(text));
+    public static HtmlElement U(string text) => Tag("u", Text(text));
+    public static HtmlElement Small(string text) => Tag("small", Text(text));
+    public static HtmlElement Strong(string text) => Tag("strong", Text(text));
+    public static HtmlElement Em(string text) => Tag("em", Text(text));
 }
