@@ -17,4 +17,10 @@ public static class BootstrapConstants
     public const string Column10Class = "col-10";
     public const string Column11Class = "col-11";
     public const string Column12Class = "col-12";
+    public const string H1 = "h1";
+    public const string H2 = "h2";
+    public const string H3 = "h3";
+    public const string H4 = "h4";
+    public const string H5 = "h5";
+    public const string H6 = "h6";
 }
