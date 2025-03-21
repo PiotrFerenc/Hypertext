@@ -22,6 +22,7 @@ public abstract record HtmlElement
     public HtmlElement WithData(string key, string value) => WithAttribute($"data-{key}", value);
 
     public HtmlElement WithAria(string key, string value) => WithAttribute($"aria-{key}", value);
+    public HtmlElement WithRole(string value) => WithAttribute("role", value);
 
     public HtmlElement WithOnClick(string script) => WithAttribute("onclick", script);
 }
