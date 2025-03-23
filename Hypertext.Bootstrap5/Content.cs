@@ -27,4 +27,48 @@ public static class Content
         public static HtmlElement Strong(string text) => Html.Strong(text);
         public static HtmlElement Emphasized(string text) => Html.Em(text);
     }
+
+    public static class Table
+    {
+        public static HtmlElement Default(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableClass);
+        public static HtmlElement Primary(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TablePrimaryClass);
+        public static HtmlElement Secondary(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableSecondaryClass);
+        public static HtmlElement Success(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableSuccessClass);
+        public static HtmlElement Danger(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableDangerClass);
+        public static HtmlElement Warning(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableWarningClass);
+        public static HtmlElement Info(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableInfoClass);
+        public static HtmlElement Light(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableLightClass);
+        public static HtmlElement Dark(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableDarkClass);
+    }
+}
+
+public class TableBuilder<T>
+{
+    private Dictionary<string, Func<T, HtmlElement>> _rows = new();
+
+    public delegate HtmlElement RowBuilder(params HtmlElement[] rows);
+
+    public TableBuilder<T> WithRow(string name, Func<T, HtmlElement> row)
+    {
+        _rows.Add(name, row);
+        return this;
+    }
+
+    public HtmlElement Build(List<T> items, RowBuilder rowBuilder)
+    {
+        var head = Html.Thead(Html.Tr(_rows.Select(x => Html.Th(Html.Text(x.Key))).ToArray()));
+        var body = new List<HtmlElement>();
+        foreach (var item in items)
+        {
+            foreach (var row in _rows)
+            {
+                var td = Html.Td(row.Value(item).Render());
+                var tr = Html.Tr(td);
+                body.Add(tr);
+            }
+        }
+
+        var rows = new[] { head, Html.Tbody(body.ToArray()) };
+        return rowBuilder(rows);
+    }
 }

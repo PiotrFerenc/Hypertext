@@ -44,4 +44,12 @@ public static class Html
     public static HtmlElement Small(string text) => Tag("small", Text(text));
     public static HtmlElement Strong(string text) => Tag("strong", Text(text));
     public static HtmlElement Em(string text) => Tag("em", Text(text));
+    public static HtmlElement Table(HtmlElement[] rows) => Tag("table", rows);
+
+    public static HtmlElement Tr(params HtmlElement[] items) => Tag("tr", items);
+    public static HtmlElement Thead(HtmlElement tr) => Tag("thead",tr);
+    public static HtmlElement Tbody(params HtmlElement[] items) => Tag("tbody",items);
+    public static HtmlElement Tfoot(HtmlElement tr) => Tag("tfoot",tr);
+    public static HtmlElement Th(HtmlElement text) => Tag("th", text);
+    public static HtmlElement Td(string text) => Tag("td", Text(text));
 }

@@ -44,4 +44,14 @@ public static class BootstrapConstants
     public const string AlertLightClass = "alert alert-light";
     public const string AlertDarkClass = "alert alert-dark";
     public const string Alert = "alert";
+
+    public const string TablePrimaryClass = "table table-primary";
+    public const string TableSecondaryClass = "table table-secondary";
+    public const string TableSuccessClass = "table table-success";
+    public const string TableDangerClass = "table table-danger";
+    public const string TableWarningClass = "table table-warning";
+    public const string TableInfoClass = "table table-info";
+    public const string TableLightClass = "table table-light";
+    public const string TableDarkClass = "table table-dark";
+    public const string TableClass = "table";
 }
