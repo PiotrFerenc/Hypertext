@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace Hypertext.Bootstrap5.Tests;
+﻿namespace Hypertext.Bootstrap5.Tests;
 
 public class GridTests
 {

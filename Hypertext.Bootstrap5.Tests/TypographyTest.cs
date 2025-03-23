@@ -1,6 +1,3 @@
-using Hypertext.Bootstrap5;
-using Xunit;
-using Hypertext;
 using JetBrains.Annotations;
 
 namespace Hypertext.Bootstrap5.Tests;

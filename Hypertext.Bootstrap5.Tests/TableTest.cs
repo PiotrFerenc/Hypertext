@@ -1,8 +1,4 @@
-using System.Linq;
-using Hypertext;
-using Hypertext.Bootstrap5;
 using JetBrains.Annotations;
-using Xunit;
 
 namespace Hypertext.Bootstrap5.Tests;
 

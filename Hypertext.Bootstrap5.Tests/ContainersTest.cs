@@ -1,5 +1,3 @@
-using Hypertext;
-using Hypertext.Bootstrap5;
 using JetBrains.Annotations;
 
 namespace Hypertext.Bootstrap5.Tests;
