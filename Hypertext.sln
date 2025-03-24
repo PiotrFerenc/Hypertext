@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hypertext.Bootstrap5", "Hyp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hypertext.Bootstrap5.Tests", "Hypertext.Bootstrap5.Tests\Hypertext.Bootstrap5.Tests.csproj", "{1C1F85C2-21B6-4B89-8FBB-448B35F62B67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HypertextTests", "HypertextTests\HypertextTests.csproj", "{A7CCA900-E962-4F7A-A39A-D48A0F8950B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{1C1F85C2-21B6-4B89-8FBB-448B35F62B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C1F85C2-21B6-4B89-8FBB-448B35F62B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C1F85C2-21B6-4B89-8FBB-448B35F62B67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7CCA900-E962-4F7A-A39A-D48A0F8950B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7CCA900-E962-4F7A-A39A-D48A0F8950B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7CCA900-E962-4F7A-A39A-D48A0F8950B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7CCA900-E962-4F7A-A39A-D48A0F8950B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
