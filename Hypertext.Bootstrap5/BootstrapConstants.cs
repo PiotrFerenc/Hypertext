@@ -54,4 +54,19 @@ public static class BootstrapConstants
     public const string TableLightClass = "table table-light";
     public const string TableDarkClass = "table table-dark";
     public const string TableClass = "table";
+
+    public const string FormControlClass = "form-control";
+    public const string FormControlTextInput = "text";
+    public const string FormControlPasswordInput = "password";
+    public const string FormControlNumberInput = "number";
+    public const string FormControlEmailInput = "email";
+    public const string FormControlDateInput = "date";
+    public const string FormControlTimeInput = "time";
+    public const string FormControlFileInput = "file";
+    public const string FormControlRangeInput = "range";
+    public const string FormControlColorInput = "color";
+    public const string FormControlCheckbox = "checkbox";
+    public const string FormControlRadio = "radio";
+    public const string FormControlSelect = "select";
+    public const string FormControlTextarea = "textarea";
 }

@@ -47,9 +47,13 @@ public static class Html
     public static HtmlElement Table(HtmlElement[] rows) => Tag("table", rows);
 
     public static HtmlElement Tr(params HtmlElement[] items) => Tag("tr", items);
-    public static HtmlElement Thead(HtmlElement tr) => Tag("thead",tr);
-    public static HtmlElement Tbody(params HtmlElement[] items) => Tag("tbody",items);
-    public static HtmlElement Tfoot(HtmlElement tr) => Tag("tfoot",tr);
+    public static HtmlElement Thead(HtmlElement tr) => Tag("thead", tr);
+    public static HtmlElement Tbody(params HtmlElement[] items) => Tag("tbody", items);
+    public static HtmlElement Tfoot(HtmlElement tr) => Tag("tfoot", tr);
     public static HtmlElement Th(HtmlElement text) => Tag("th", text);
     public static HtmlElement Td(string text) => Tag("td", Text(text));
+
+    public static HtmlElement Select(HtmlElement[] options) => Tag("select", options);
+
+    public static HtmlElement TextArea(string value) => Tag("textarea", Text(value));
 }

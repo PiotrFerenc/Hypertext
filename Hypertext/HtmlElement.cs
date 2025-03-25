@@ -25,4 +25,8 @@ public abstract record HtmlElement
     public HtmlElement WithRole(string value) => WithAttribute("role", value);
 
     public HtmlElement WithOnClick(string script) => WithAttribute("onclick", script);
+
+    public HtmlElement WithName(string name) => WithAttribute("name", name);
+
+    public HtmlElement WithChecked(bool isChecked) => WithAttribute("checked", isChecked ? "checked" : string.Empty);
 }
