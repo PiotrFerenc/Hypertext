@@ -69,4 +69,15 @@ public static class BootstrapConstants
     public const string FormControlRadio = "radio";
     public const string FormControlSelect = "select";
     public const string FormControlTextarea = "textarea";
+
+    public const string ButtonPrimaryClass = "btn btn-primary";
+    public const string ButtonSecondaryClass = "btn btn-secondary";
+    public const string ButtonSuccessClass = "btn btn-success";
+    public const string ButtonDangerClass = "btn btn-danger";
+    public const string ButtonWarningClass = "btn btn-warning";
+    public const string ButtonInfoClass = "btn btn-info";
+    public const string ButtonLightClass = "btn btn-light";
+    public const string ButtonDarkClass = "btn btn-dark";
+    public const string ButtonLinkClass = "btn btn-link";
+    public const string Button = "btn";
 }
