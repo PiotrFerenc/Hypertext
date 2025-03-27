@@ -80,4 +80,13 @@ public static class BootstrapConstants
     public const string ButtonDarkClass = "btn btn-dark";
     public const string ButtonLinkClass = "btn btn-link";
     public const string Button = "btn";
+
+    public const string BadgePrimary = "badge badge-primary";
+    public const string BadgeSecondary = "badge badge-secondary";
+    public const string BadgeSuccess = "badge badge-success";
+    public const string BadgeDanger = "badge badge-danger";
+    public const string BadgeWarning = "badge badge-warning";
+    public const string BadgeInfo = "badge badge-info";
+    public const string BadgeLight = "badge badge-light";
+    public const string BadgeDark = "badge badge-dark";
 }

@@ -26,4 +26,15 @@ public static class Components
         public static HtmlElement Light(string text) => Html.Button(text).WithClass(BootstrapConstants.ButtonLightClass);
         public static HtmlElement Dark(string text) => Html.Button(text).WithClass(BootstrapConstants.ButtonDarkClass);
     }
+
+    public static class Badge
+    {
+        public static HtmlElement Primary(string text) => Html.Span(text).WithClass(BootstrapConstants.BadgePrimary);
+        public static HtmlElement Danger(string text) => Html.Span(text).WithClass(BootstrapConstants.BadgeDanger);
+        public static HtmlElement Success(string text) => Html.Span(text).WithClass(BootstrapConstants.BadgeSuccess);
+        public static HtmlElement Warning(string text) => Html.Span(text).WithClass(BootstrapConstants.BadgeWarning);
+        public static HtmlElement Info(string text) => Html.Span(text).WithClass(BootstrapConstants.BadgeInfo);
+        public static HtmlElement Light(string text) => Html.Span(text).WithClass(BootstrapConstants.BadgeLight);
+        public static HtmlElement Dark(string text) => Html.Span(text).WithClass(BootstrapConstants.BadgeDark);
+    }
 }

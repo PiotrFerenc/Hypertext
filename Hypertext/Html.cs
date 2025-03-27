@@ -13,6 +13,7 @@ public static class Html
     public static HtmlElement Div(params HtmlElement[] children) => Tag("div", children);
 
     public static HtmlElement Span(params HtmlElement[] children) => Tag("span", children);
+    public static HtmlElement Span(string text) => Tag("span", Html.Text(text));
 
     public static HtmlElement P(params HtmlElement[] children) => Tag("p", children);
     public static HtmlElement P(string text) => Tag("p", Text(text));
