@@ -89,4 +89,12 @@ public static class BootstrapConstants
     public const string BadgeInfo = "badge badge-info";
     public const string BadgeLight = "badge badge-light";
     public const string BadgeDark = "badge badge-dark";
+    
+    public const string Progress ="progress";
+    public const string ProgressBarSuccess = "progress-bar bg-success";
+    public const string ProgressBarDanger = "progress-bar bg-danger";
+    public const string ProgressBarWarning = "progress-bar bg-warning";
+    public const string ProgressBarInfo = "progress-bar bg-info";
+    public const string ProgressBarLight = "progress-bar bg-light";
+    public const string ProgressBarDark = "progress-bar bg-dark";
 }

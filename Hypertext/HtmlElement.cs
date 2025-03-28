@@ -29,4 +29,6 @@ public abstract record HtmlElement
     public HtmlElement WithName(string name) => WithAttribute("name", name);
 
     public HtmlElement WithChecked(bool isChecked) => WithAttribute("checked", isChecked ? "checked" : string.Empty);
+
+    public HtmlElement WithStyle(string style)=> WithAttribute("style", style);
 }

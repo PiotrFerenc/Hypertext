@@ -37,4 +37,15 @@ public static class Components
         public static HtmlElement Light(string text) => Html.Span(text).WithClass(BootstrapConstants.BadgeLight);
         public static HtmlElement Dark(string text) => Html.Span(text).WithClass(BootstrapConstants.BadgeDark);
     }
+
+    public static class Progress
+    {
+        private static HtmlElement Bar(string text, uint value, string style, uint min = 0, uint max = 100) => Html.Div(Html.Div().WithClass(style).WithStyle($"width: {value}%")).WithClass(BootstrapConstants.Progress).WithAria("label", text).WithData("valuenow", value.ToString()).WithAria("valuemax", max.ToString()).WithAria("valuemin", min.ToString());
+        public static HtmlElement SuccessBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarSuccess, min, max);
+        public static HtmlElement DangerBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarDanger, min, max);
+        public static HtmlElement WarningBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarWarning, min, max);
+        public static HtmlElement InfoBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarInfo, min, max);
+        public static HtmlElement LightBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarLight, min, max);
+        public static HtmlElement DarkBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarDark, min, max);
+    }
 }
