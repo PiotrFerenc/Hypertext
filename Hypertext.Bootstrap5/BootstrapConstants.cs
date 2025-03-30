@@ -97,4 +97,14 @@ public static class BootstrapConstants
     public const string ProgressBarInfo = "progress-bar bg-info";
     public const string ProgressBarLight = "progress-bar bg-light";
     public const string ProgressBarDark = "progress-bar bg-dark";
+    
+    public const string SpinnerPrimary ="spinner-border text-primary";
+    public const string SpinnerSecondary ="spinner-border text-secondary";
+    public const string SpinnerSuccess ="spinner-border text-success";
+    public const string SpinnerDanger ="spinner-border text-danger";
+    public const string SpinnerWarning ="spinner-border text-warning";
+    public const string SpinnerInfo ="spinner-border text-info";
+    public const string SpinnerLight ="spinner-border text-light";
+    public const string SpinnerDark ="spinner-border text-dark";
+    
 }

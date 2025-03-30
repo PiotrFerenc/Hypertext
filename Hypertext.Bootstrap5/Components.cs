@@ -48,4 +48,19 @@ public static class Components
         public static HtmlElement LightBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarLight, min, max);
         public static HtmlElement DarkBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarDark, min, max);
     }
+
+    public static class Spinners
+    {
+        private static HtmlElement Spinner(string text, string color) => Html.Div(Html.Span(Html.Text(text)).WithClass("visually-hidden")).WithClass(color).WithRole("status");
+
+        public static HtmlElement Primary(string text) => Spinner(text, BootstrapConstants.SpinnerPrimary);
+        public static HtmlElement Secondary(string text) => Spinner(text, BootstrapConstants.SpinnerSecondary);
+        public static HtmlElement Success(string text) => Spinner(text, BootstrapConstants.SpinnerSuccess);
+        public static HtmlElement Danger(string text) => Spinner(text, BootstrapConstants.SpinnerDanger);
+        public static HtmlElement Warning(string text) => Spinner(text, BootstrapConstants.SpinnerWarning);
+        public static HtmlElement Info(string text) => Spinner(text, BootstrapConstants.SpinnerInfo);
+        public static HtmlElement Light(string text) => Spinner(text, BootstrapConstants.SpinnerLight);
+        public static HtmlElement Dark(string text) => Spinner(text, BootstrapConstants.SpinnerDark);
+        
+    }
 }
