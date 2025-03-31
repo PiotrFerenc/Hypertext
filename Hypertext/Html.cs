@@ -57,4 +57,6 @@ public static class Html
     public static HtmlElement Select(HtmlElement[] options) => Tag("select", options);
 
     public static HtmlElement TextArea(string value) => Tag("textarea", Text(value));
+
+    public static HtmlElement Nav(HtmlElement ul) => Tag("nav", ul);
 }

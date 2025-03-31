@@ -107,4 +107,10 @@ public static class BootstrapConstants
     public const string SpinnerLight ="spinner-border text-light";
     public const string SpinnerDark ="spinner-border text-dark";
     
+    public const string PageItem ="page-item";
+    public const string PageLink ="page-link";
+    public const string Pagination ="pagination";
+    
+    
+    
 }

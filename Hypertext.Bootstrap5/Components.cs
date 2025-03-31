@@ -61,6 +61,13 @@ public static class Components
         public static HtmlElement Info(string text) => Spinner(text, BootstrapConstants.SpinnerInfo);
         public static HtmlElement Light(string text) => Spinner(text, BootstrapConstants.SpinnerLight);
         public static HtmlElement Dark(string text) => Spinner(text, BootstrapConstants.SpinnerDark);
-        
+    }
+
+    public static class Pagination
+    {
+        public static HtmlElement Default(List<(string Link, string Text)> items) =>
+            Html.Nav(Html.Ul(items.Select(x => Html.Li(_link(x.Link, x.Text)).WithClass(BootstrapConstants.PageItem)).ToArray()).WithClass(BootstrapConstants.Pagination));
+
+        private static HtmlElement _link(string link, string text) => Html.A(link, Html.Text(text)).WithClass(BootstrapConstants.PageLink);
     }
 }
