@@ -10,7 +10,7 @@ public class HtmlTest
     public void Tag_WithNameAndChildren_ShouldRenderCorrectHtml()
     {
         var child = Html.Text("content");
-        var tag = Html.Tag("div", child);
+        var tag = Html.Tag(HtmlTag.Div, child);
         Assert.Equal("<div>content</div>", tag.Render());
     }
 
