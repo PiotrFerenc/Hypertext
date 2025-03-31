@@ -39,5 +39,8 @@ public static class Content
         public static HtmlElement Info(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableInfoClass);
         public static HtmlElement Light(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableLightClass);
         public static HtmlElement Dark(params HtmlElement[] rows) => Html.Table(rows).WithClass(BootstrapConstants.TableDarkClass);
+
+        public static HtmlElement Row(params HtmlElement[] columns) => Html.Tr(columns);
+        public static HtmlElement Column(params HtmlElement[] items) => Html.Td(items);
     }
 }
