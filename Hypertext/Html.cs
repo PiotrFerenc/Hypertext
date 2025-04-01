@@ -62,4 +62,6 @@ public static class Html
     public static HtmlElement TextArea(string value) => Tag(HtmlTag.TextArea, Text(value));
 
     public static HtmlElement Nav(HtmlElement ul) => Tag(HtmlTag.Nav, ul);
+
+    public static HtmlElement Ol(params HtmlElement[] li) => Tag(HtmlTag.Ol, li);
 }

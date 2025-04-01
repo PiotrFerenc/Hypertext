@@ -70,4 +70,9 @@ public static class Components
 
         private static HtmlElement _link(string link, string text) => Html.A(link, Html.Text(text)).WithClass(BootstrapConstants.PageLink);
     }
+
+    public static class Breadcrumb
+    {
+        public static HtmlElement Default(params HtmlElement[] links) => Html.Nav(Html.Ol(links.Select(x => Html.Li(x).WithClass(BootstrapConstants.BreadcrumbItem)).ToArray())).WithAria("label", BootstrapConstants.Breadcrumb);
+    }
 }

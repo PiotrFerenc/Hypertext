@@ -89,28 +89,29 @@ public static class BootstrapConstants
     public const string BadgeInfo = "badge badge-info";
     public const string BadgeLight = "badge badge-light";
     public const string BadgeDark = "badge badge-dark";
-    
-    public const string Progress ="progress";
+
+    public const string Progress = "progress";
     public const string ProgressBarSuccess = "progress-bar bg-success";
     public const string ProgressBarDanger = "progress-bar bg-danger";
     public const string ProgressBarWarning = "progress-bar bg-warning";
     public const string ProgressBarInfo = "progress-bar bg-info";
     public const string ProgressBarLight = "progress-bar bg-light";
     public const string ProgressBarDark = "progress-bar bg-dark";
-    
-    public const string SpinnerPrimary ="spinner-border text-primary";
-    public const string SpinnerSecondary ="spinner-border text-secondary";
-    public const string SpinnerSuccess ="spinner-border text-success";
-    public const string SpinnerDanger ="spinner-border text-danger";
-    public const string SpinnerWarning ="spinner-border text-warning";
-    public const string SpinnerInfo ="spinner-border text-info";
-    public const string SpinnerLight ="spinner-border text-light";
-    public const string SpinnerDark ="spinner-border text-dark";
-    
-    public const string PageItem ="page-item";
-    public const string PageLink ="page-link";
-    public const string Pagination ="pagination";
-    
-    
-    
+
+    public const string SpinnerPrimary = "spinner-border text-primary";
+    public const string SpinnerSecondary = "spinner-border text-secondary";
+    public const string SpinnerSuccess = "spinner-border text-success";
+    public const string SpinnerDanger = "spinner-border text-danger";
+    public const string SpinnerWarning = "spinner-border text-warning";
+    public const string SpinnerInfo = "spinner-border text-info";
+    public const string SpinnerLight = "spinner-border text-light";
+    public const string SpinnerDark = "spinner-border text-dark";
+
+    public const string PageItem = "page-item";
+    public const string PageLink = "page-link";
+    public const string Pagination = "pagination";
+
+
+    public const string BreadcrumbItem = "breadcrumb-item";
+    public const string Breadcrumb = "breadcrumb";
 }
