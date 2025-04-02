@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace Hypertext.Bootstrap5;
 
 public static class Components
@@ -74,5 +76,21 @@ public static class Components
     public static class Breadcrumb
     {
         public static HtmlElement Default(params HtmlElement[] links) => Html.Nav(Html.Ol(links.Select(x => Html.Li(x).WithClass(BootstrapConstants.BreadcrumbItem)).ToArray())).WithAria("label", BootstrapConstants.Breadcrumb);
+    }
+
+    public static class Placeholders
+    {
+        public static HtmlElement Col1() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol1);
+        public static HtmlElement Col2() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol2);
+        public static HtmlElement Col3() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol3);
+        public static HtmlElement Col4() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol4);
+        public static HtmlElement Col5() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol5);
+        public static HtmlElement Col6() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol6);
+        public static HtmlElement Col7() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol7);
+        public static HtmlElement Col8() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol8);
+        public static HtmlElement Col9() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol9);
+        public static HtmlElement Col10() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol10);
+        public static HtmlElement Col11() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol11);
+        public static HtmlElement Col12() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol12);
     }
 }

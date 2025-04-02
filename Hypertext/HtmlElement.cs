@@ -18,6 +18,7 @@ public abstract record HtmlElement
     public HtmlElement WithId(string id) => WithAttribute("id", id);
 
     public HtmlElement WithClass(string className) => WithAttribute("class", className);
+    public HtmlElement WithClass(params string[] classes) => WithAttribute("class", classes.Aggregate((a, b) => $"{a} {b}"));
 
     public HtmlElement WithData(string key, string value) => WithAttribute($"data-{key}", value);
 
@@ -30,5 +31,5 @@ public abstract record HtmlElement
 
     public HtmlElement WithChecked(bool isChecked) => WithAttribute("checked", isChecked ? "checked" : string.Empty);
 
-    public HtmlElement WithStyle(string style)=> WithAttribute("style", style);
+    public HtmlElement WithStyle(string style) => WithAttribute("style", style);
 }

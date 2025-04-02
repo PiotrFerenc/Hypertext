@@ -114,4 +114,17 @@ public static class BootstrapConstants
 
     public const string BreadcrumbItem = "breadcrumb-item";
     public const string Breadcrumb = "breadcrumb";
+
+    public const string PlaceholderCol1 = "placeholder col-1";
+    public const string PlaceholderCol2 = "placeholder col-2";
+    public const string PlaceholderCol3 = "placeholder col-3";
+    public const string PlaceholderCol4 = "placeholder col-4";
+    public const string PlaceholderCol5 = "placeholder col-5";
+    public const string PlaceholderCol6 = "placeholder col-6";
+    public const string PlaceholderCol7 = "placeholder col-7";
+    public const string PlaceholderCol8 = "placeholder col-8";
+    public const string PlaceholderCol9 = "placeholder col-9";
+    public const string PlaceholderCol10 = "placeholder col-10";
+    public const string PlaceholderCol11 = "placeholder col-11";
+    public const string PlaceholderCol12 = "placeholder col-12";
 }
