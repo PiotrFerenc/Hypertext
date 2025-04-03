@@ -8,7 +8,7 @@ public static class Html
     public static HtmlElement Tag(string name, params HtmlElement[] children) => new HtmlNode(name, new Dictionary<string, string>(), children);
 
     public static HtmlElement Tag(HtmlTag name, Dictionary<string, string> attributes, params HtmlElement[] children) => new HtmlNode(name.ToStringFast(true), attributes, children);
-    public static HtmlElement Tag(string name, Dictionary<string, string> attributes, params HtmlElement[] children) => new HtmlNode(name , attributes, children);
+    public static HtmlElement Tag(string name, Dictionary<string, string> attributes, params HtmlElement[] children) => new HtmlNode(name, attributes, children);
 
     public static HtmlElement Text(string content) => new HtmlText(content);
 
@@ -37,6 +37,7 @@ public static class Html
     public static HtmlElement Input(string type, string name, string value = "") => new SelfClosingTag(HtmlTag.Input.ToStringFast(true), new Dictionary<string, string> { { "type", type }, { "name", name }, { "value", value } });
 
     public static HtmlElement Button(string text, Dictionary<string, string>? attributes = null) => Tag(HtmlTag.Button, attributes ?? new Dictionary<string, string>(), Text(text));
+    public static HtmlElement Button(HtmlElement children, Dictionary<string, string> attributes) => new SelfClosingTag(HtmlTag.Button, attributes);
 
     public static HtmlElement Fragment(params HtmlElement[] children) => new HtmlFragment(children);
     public static HtmlElement Mark(string text) => Tag(HtmlTag.Mark, Text(text));
@@ -58,10 +59,8 @@ public static class Html
     public static HtmlElement Td(params HtmlElement[] items) => Tag(HtmlTag.Td, items);
 
     public static HtmlElement Select(HtmlElement[] options) => Tag(HtmlTag.Select, options);
-
     public static HtmlElement TextArea(string value) => Tag(HtmlTag.TextArea, Text(value));
 
-    public static HtmlElement Nav(HtmlElement ul) => Tag(HtmlTag.Nav, ul);
-
+    public static HtmlElement Nav(params HtmlElement[] items) => Tag(HtmlTag.Nav, items);
     public static HtmlElement Ol(params HtmlElement[] li) => Tag(HtmlTag.Ol, li);
 }

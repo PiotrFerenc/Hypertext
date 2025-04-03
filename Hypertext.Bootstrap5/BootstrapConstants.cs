@@ -127,4 +127,19 @@ public static class BootstrapConstants
     public const string PlaceholderCol10 = "placeholder col-10";
     public const string PlaceholderCol11 = "placeholder col-11";
     public const string PlaceholderCol12 = "placeholder col-12";
+    public const string PrimaryNavbar = "navbar navbar-expand-lg bg-primary";
+
+    public const string SecondaryNavbar = "navbar navbar-expand-lg bg-secondary";
+    public const string SuccessNavbar = "navbar navbar-expand-lg bg-success";
+    public const string DangerNavbar = "navbar navbar-expand-lg bg-danger";
+    public const string WarningNavbar = "navbar navbar-expand-lg bg-warning";
+    public const string InfoNavbar = "navbar navbar-expand-lg bg-info";
+    public const string LightNavbar = "navbar navbar-expand-lg bg-light";
+    public const string DarkNavbar = "navbar navbar-expand-lg bg-dark";
+    public const string NavBarTogglerIcon = "navbar-toggler-icon";
+    public const string NavBarToggler = "navbar-toggler";
+    public const string CollapseNavbarCollapse = "collapse navbar-collapse";
+    public const string NavbarNav = "navbar-nav";
+    public const string NavLink = "nav-link";
+    public const string NavBrand = "navbar-brand";
 }

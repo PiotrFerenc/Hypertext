@@ -91,4 +91,29 @@ public static class Components
         public static HtmlElement Size11() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol11);
         public static HtmlElement Size12() => Html.Span().WithClass(BootstrapConstants.PlaceholderCol12);
     }
+
+    public static class Navbar
+    {
+        public static HtmlElement Primary((string link, string text) brand, params List<(string link, string text)> links)
+        {
+            var id = Guid.NewGuid().ToString("N");
+            var icon = Html.Span().WithClass(BootstrapConstants.NavBarTogglerIcon);
+            var toggler = Html.Button(icon, new Dictionary<string, string>()
+                {
+                    { "data-bs-toggle", "collapse" },
+                    { "data-bs-target", "#" + id }
+                }).WithClass(BootstrapConstants.NavBarToggler)
+                .WithAria("controls", id)
+                .WithAria("expanded", "false")
+                .WithAria("label", "Toggle navigation");
+
+            var container = Html.Div(_brand(brand.link, brand.text), toggler).WithClass(BootstrapConstants.ContainerFluidClass);
+            var navbarNav = Html.Div(links.Select(x => _link(x.link, x.text)).ToArray()).WithClass(BootstrapConstants.NavbarNav);
+            var collapse = Html.Div(navbarNav).WithId(id).WithClass(BootstrapConstants.CollapseNavbarCollapse);
+            return Html.Nav(container, collapse).WithClass(BootstrapConstants.PrimaryNavbar);
+        }
+
+        private static HtmlElement _link(string link, string text) => Html.A(link, Html.Text(text)).WithClass(BootstrapConstants.NavLink);
+        private static HtmlElement _brand(string link, string text) => Html.A(link, Html.Text(text)).WithClass(BootstrapConstants.NavBrand);
+    }
 }
