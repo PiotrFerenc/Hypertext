@@ -1,5 +1,3 @@
-using System.Net.Mime;
-
 namespace Hypertext.Bootstrap5;
 
 public static class Components
