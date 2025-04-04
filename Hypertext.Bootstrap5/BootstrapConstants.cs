@@ -136,10 +136,14 @@ public static class BootstrapConstants
     public const string InfoNavbar = "navbar navbar-expand-lg bg-info";
     public const string LightNavbar = "navbar navbar-expand-lg bg-light";
     public const string DarkNavbar = "navbar navbar-expand-lg bg-dark";
+
     public const string NavBarTogglerIcon = "navbar-toggler-icon";
     public const string NavBarToggler = "navbar-toggler";
     public const string CollapseNavbarCollapse = "collapse navbar-collapse";
     public const string NavbarNav = "navbar-nav";
     public const string NavLink = "nav-link";
+    public const string NavItem = "nav-item";
     public const string NavBrand = "navbar-brand";
+    public const string Nav = "nav";
+    public const string NavActiveLink = "nav-link active";
 }

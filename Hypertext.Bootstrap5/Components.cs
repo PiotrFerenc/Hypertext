@@ -1,3 +1,5 @@
+using System.Net.Mime;
+
 namespace Hypertext.Bootstrap5;
 
 public static class Components
@@ -115,5 +117,13 @@ public static class Components
 
         private static HtmlElement _link(string link, string text) => Html.A(link, Html.Text(text)).WithClass(BootstrapConstants.NavLink);
         private static HtmlElement _brand(string link, string text) => Html.A(link, Html.Text(text)).WithClass(BootstrapConstants.NavBrand);
+    }
+
+    public static class Navs
+    {
+        public static HtmlElement Nav(params (string link, string text, bool isActive)[] links) => Html.Ul(links.Select(x => _item(x.link, x.text, x.isActive)).ToArray()).WithClass(BootstrapConstants.Nav);
+        private static HtmlElement _link(string link, string text) => Html.A(link, Html.Text(text)).WithClass(BootstrapConstants.NavLink);
+        private static HtmlElement _activeLink(string link, string text) => Html.A(link, Html.Text(text)).WithClass(BootstrapConstants.NavActiveLink).WithAria("current", "page");
+        private static HtmlElement _item(string link, string text, bool isActive) => Html.Li(isActive ? _activeLink(link, text) : _link(link, text)).WithClass(BootstrapConstants.NavItem);
     }
 }
