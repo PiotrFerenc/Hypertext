@@ -96,7 +96,17 @@ public static class Components
 
     public static class Navbar
     {
-        public static HtmlElement Primary((string link, string text) brand, params List<(string link, string text)> links)
+        public static HtmlElement Primary((string link, string text) brand, params List<(string link, string text)> links) => _navbar(brand, BootstrapConstants.PrimaryNavbar, links);
+        public static HtmlElement Secondary((string link, string text) brand, params List<(string link, string text)> links) => _navbar(brand, BootstrapConstants.SecondaryNavbar, links);
+        public static HtmlElement Dark((string link, string text) brand, params List<(string link, string text)> links) => _navbar(brand, BootstrapConstants.DarkNavbar, links);
+        public static HtmlElement Light((string link, string text) brand, params List<(string link, string text)> links) => _navbar(brand, BootstrapConstants.LightNavbar, links);
+        public static HtmlElement Info((string link, string text) brand, params List<(string link, string text)> links) => _navbar(brand, BootstrapConstants.InfoNavbar, links);
+        public static HtmlElement Success((string link, string text) brand, params List<(string link, string text)> links) => _navbar(brand, BootstrapConstants.SuccessNavbar, links);
+        public static HtmlElement Warning((string link, string text) brand, params List<(string link, string text)> links) => _navbar(brand, BootstrapConstants.WarningNavbar, links);
+        public static HtmlElement Danger((string link, string text) brand, params List<(string link, string text)> links) => _navbar(brand, BootstrapConstants.DangerNavbar, links);
+
+
+        private static HtmlElement _navbar((string link, string text) brand, string color, params List<(string link, string text)> links)
         {
             var id = Guid.NewGuid().ToString("N");
             var icon = Html.Span().WithClass(BootstrapConstants.NavBarTogglerIcon);
@@ -112,7 +122,7 @@ public static class Components
             var container = Html.Div(_brand(brand.link, brand.text), toggler).WithClass(BootstrapConstants.ContainerFluidClass);
             var navbarNav = Html.Div(links.Select(x => _link(x.link, x.text)).ToArray()).WithClass(BootstrapConstants.NavbarNav);
             var collapse = Html.Div(navbarNav).WithId(id).WithClass(BootstrapConstants.CollapseNavbarCollapse);
-            return Html.Nav(container, collapse).WithClass(BootstrapConstants.PrimaryNavbar);
+            return Html.Nav(container, collapse).WithClass(color);
         }
 
         private static HtmlElement _link(string link, string text) => Html.A(link, Html.Text(text)).WithClass(BootstrapConstants.NavLink);
