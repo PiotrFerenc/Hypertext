@@ -134,4 +134,13 @@ public static class Components
         private static HtmlElement _activeLink(string link, string text) => Html.A(link, Html.Text(text)).WithClass(BootstrapConstants.NavActiveLink).WithAria("current", "page");
         private static HtmlElement _item(string link, string text, bool isActive) => Html.Li(isActive ? _activeLink(link, text) : _link(link, text)).WithClass(BootstrapConstants.NavItem);
     }
+
+    public static class Cards
+    {
+        private static HtmlElement _card(HtmlElement body) => Html.Div(
+            Html.Div(body).WithClass(BootstrapConstants.CardBody)
+        ).WithClass(BootstrapConstants.Card);
+
+        public static HtmlElement Card(HtmlElement body) => _card(body);
+    }
 }

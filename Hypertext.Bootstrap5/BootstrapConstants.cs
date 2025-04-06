@@ -146,4 +146,13 @@ public static class BootstrapConstants
     public const string NavBrand = "navbar-brand";
     public const string Nav = "nav";
     public const string NavActiveLink = "nav-link active";
+
+    public const string Card = "card";
+    public const string CardBody = "card-body";
+    public const string CardTitle = "card-title";
+    public const string CardSubtitle = "card-subtitle";
+    public const string CardText = "card-text";
+    public const string CardLink = "card-link";
+    public const string CardHeader = "card-header";
+    public const string CardFooter = "card-footer";
 }
