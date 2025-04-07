@@ -135,12 +135,56 @@ public static class Components
         private static HtmlElement _item(string link, string text, bool isActive) => Html.Li(isActive ? _activeLink(link, text) : _link(link, text)).WithClass(BootstrapConstants.NavItem);
     }
 
-    public static class Cards
+    public class Cards
     {
-        private static HtmlElement _card(HtmlElement body) => Html.Div(
-            Html.Div(body).WithClass(BootstrapConstants.CardBody)
-        ).WithClass(BootstrapConstants.Card);
+        private static HtmlElement _body = null!;
+        private static HtmlElement? _footer;
+        private static HtmlElement? _header;
 
-        public static HtmlElement Card(HtmlElement body) => _card(body);
+        public static Cards Create(HtmlElement body) => new Cards(body);
+        public static Cards Create(HtmlElement body, HtmlElement title) => new Cards(body, title);
+
+        private Cards(HtmlElement body)
+        {
+            _body = Html.Div(body).WithClass(BootstrapConstants.CardBody);
+        }
+
+        private Cards(HtmlElement body, HtmlElement title)
+        {
+            var title1 = Html.Div(title).WithClass(BootstrapConstants.CardTitle);
+            _body = Html.Div(title1, body).WithClass(BootstrapConstants.CardBody);
+        }
+
+
+        public Cards WithFooter(HtmlElement footer)
+        {
+            _footer = Html.Div(footer).WithClass(BootstrapConstants.CardFooter);
+            return this;
+        }
+
+        public Cards WithHeader(HtmlElement header)
+        {
+            _header = Html.Div(header).WithClass(BootstrapConstants.CardFooter);
+            return this;
+        }
+
+        public static HtmlElement Build()
+        {
+            var body = new List<HtmlElement>();
+
+            if (_header != null)
+            {
+                body.Add(_header);
+            }
+
+            body.Add(_body);
+
+            if (_footer != null)
+            {
+                body.Add(_footer);
+            }
+
+            return Html.Div(body.ToArray()).WithClass(BootstrapConstants.Card);
+        }
     }
 }
