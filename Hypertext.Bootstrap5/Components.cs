@@ -40,7 +40,7 @@ public static class Components
 
     public static class Progress
     {
-        private static HtmlElement Bar(string text, uint value, string style, uint min = 0, uint max = 100) => Html.Div(Html.Div().WithClass(style).WithStyle($"width: {value}%")).WithClass(BootstrapConstants.Progress).WithAria("label", text).WithData("valuenow", value.ToString()).WithAria("valuemax", max.ToString()).WithAria("valuemin", min.ToString());
+        private static HtmlElement Bar(string text, uint value, string style, uint min = 0, uint max = 100) => Html.Div(Html.Div().WithClass(style).WithStyle($"width: {value}%")).WithClass(BootstrapConstants.Progress).WithAria("label", text).WithAria("valuenow", value.ToString()).WithAria("valuemax", max.ToString()).WithAria("valuemin", min.ToString());
         public static HtmlElement SuccessBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarSuccess, min, max);
         public static HtmlElement DangerBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarDanger, min, max);
         public static HtmlElement WarningBar(string text, uint value, uint min = 0, uint max = 100) => Bar(text, value, BootstrapConstants.ProgressBarWarning, min, max);
