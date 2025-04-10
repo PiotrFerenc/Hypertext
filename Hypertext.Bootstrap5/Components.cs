@@ -108,11 +108,9 @@ public static class Components
         {
             var id = Guid.NewGuid().ToString("N");
             var icon = Html.Span().WithClass(BootstrapConstants.NavBarTogglerIcon);
-            var toggler = Html.Button(icon, new Dictionary<string, string>()
-                {
-                    { "data-bs-toggle", "collapse" },
-                    { "data-bs-target", "#" + id }
-                }).WithClass(BootstrapConstants.NavBarToggler)
+            var toggler = Html.Button(icon).WithClass(BootstrapConstants.NavBarToggler)
+                .WithAttribute("data-bs-toggle", "collapse")
+                .WithAttribute("data-bs-target", "#" + id)
                 .WithAria("controls", id)
                 .WithAria("expanded", "false")
                 .WithAria("label", "Toggle navigation");
@@ -186,5 +184,10 @@ public static class Components
 
             return Html.Div(body.ToArray()).WithClass(BootstrapConstants.Card);
         }
+    }
+
+    public static class CloseButton
+    {
+        public static HtmlElement Close() => Html.Button().WithClass(BootstrapConstants.CloseButton).WithAria("label", "Close").WithType("button");
     }
 }

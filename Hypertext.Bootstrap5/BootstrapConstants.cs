@@ -155,4 +155,5 @@ public static class BootstrapConstants
     public const string CardLink = "card-link";
     public const string CardHeader = "card-header";
     public const string CardFooter = "card-footer";
+    public const string CloseButton = "btn-close";
 }

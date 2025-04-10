@@ -4,12 +4,8 @@ using System.Collections.Generic;
 
 public static class Html
 {
-    public static HtmlElement Tag(HtmlTag name, params HtmlElement[] children) => new HtmlNode(name.ToStringFast(true), new Dictionary<string, string>(), children);
-    public static HtmlElement Tag(string name, params HtmlElement[] children) => new HtmlNode(name, new Dictionary<string, string>(), children);
-
-    public static HtmlElement Tag(HtmlTag name, Dictionary<string, string> attributes, params HtmlElement[] children) => new HtmlNode(name.ToStringFast(true), attributes, children);
-    public static HtmlElement Tag(string name, Dictionary<string, string> attributes, params HtmlElement[] children) => new HtmlNode(name, attributes, children);
-
+    public static HtmlNode Tag(HtmlTag name, params HtmlElement[] children) => new HtmlNode(name.ToStringFast(true), children);
+    public static HtmlElement Tag(string name, params HtmlElement[] children) => new HtmlNode(name, children);
     public static HtmlElement Text(string content) => new HtmlText(content);
 
     public static HtmlElement Div(params HtmlElement[] children) => Tag(HtmlTag.Div, children);
@@ -20,7 +16,7 @@ public static class Html
     public static HtmlElement P(params HtmlElement[] children) => Tag(HtmlTag.P, children);
     public static HtmlElement P(string text) => Tag(HtmlTag.P, Text(text));
 
-    public static HtmlElement A(string href, params HtmlElement[] children) => Tag(HtmlTag.A, new Dictionary<string, string> { { "href", href } }, children);
+    public static HtmlElement A(string href, params HtmlElement[] children) => Tag(HtmlTag.A, children).WithHref(href);
 
     public static HtmlElement Ul(params HtmlElement[] children) => Tag(HtmlTag.Ul, children);
 
@@ -36,8 +32,9 @@ public static class Html
 
     public static HtmlElement Input(string type, string name, string value = "") => new SelfClosingTag(HtmlTag.Input.ToStringFast(true), new Dictionary<string, string> { { "type", type }, { "name", name }, { "value", value } });
 
-    public static HtmlElement Button(string text, Dictionary<string, string>? attributes = null) => Tag(HtmlTag.Button, attributes ?? new Dictionary<string, string>(), Text(text));
-    public static HtmlElement Button(HtmlElement children, Dictionary<string, string> attributes) => new SelfClosingTag(HtmlTag.Button, attributes);
+    public static HtmlElement Button(string text) => Tag(HtmlTag.Button, Text(text));
+    public static HtmlElement Button(params HtmlElement[] child) => Tag(HtmlTag.Button, child);
+    public static HtmlElement Button() => Tag(HtmlTag.Button);
 
     public static HtmlElement Fragment(params HtmlElement[] children) => new HtmlFragment(children);
     public static HtmlElement Mark(string text) => Tag(HtmlTag.Mark, Text(text));

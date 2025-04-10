@@ -1,6 +1,6 @@
 namespace Hypertext;
 
-public record HtmlNode(string Tag, Dictionary<string, string> Attributes, HtmlElement[] Children) : HtmlElement
+public record HtmlNode(string Tag, params HtmlElement[] Children) : HtmlElement
 {
     public override string Render()
     {
