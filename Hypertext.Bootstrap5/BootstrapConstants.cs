@@ -156,4 +156,15 @@ public static class BootstrapConstants
     public const string CardHeader = "card-header";
     public const string CardFooter = "card-footer";
     public const string CloseButton = "btn-close";
+
+    public const string LinkUnderlinePrimary = "link-underline-primary";
+    public const string LinkUnderlineSecondary = "link-underline-secondary";
+    public const string LinkUnderlineSuccess = "link-underline-success";
+    public const string LinkUnderlineDanger = "link-underline-danger";
+    public const string LinkUnderlineWarning = "link-underline-warning";
+    public const string LinkUnderlineInfo = "link-underline-info";
+    public const string LinkUnderlineLight = "link-underline-light";
+    public const string LinkUnderlineDark = "link-underline-dark";
+    public const string LinkUnderline = "link-underline";
+    
 }
