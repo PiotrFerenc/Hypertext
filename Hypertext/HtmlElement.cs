@@ -2,7 +2,7 @@ namespace Hypertext;
 
 public abstract record HtmlElement
 {
-    protected Dictionary<string, string> Attributes = new();
+    public Dictionary<string, string> Attributes = new();
     public abstract string Render();
 
     public HtmlElement WithAttribute(string key, string value)

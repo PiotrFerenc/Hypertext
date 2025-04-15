@@ -2,12 +2,12 @@ namespace Hypertext;
 
 public record SelfClosingTag : HtmlElement
 {
-    private readonly string _tag;
-    public Dictionary<string, string> Attributes;
+    public readonly string Tag;
+    public new readonly Dictionary<string, string> Attributes;
 
     public SelfClosingTag(string tag, Dictionary<string, string> attributes)
     {
-        _tag = tag;
+        Tag = tag;
         Attributes = attributes;
     }
 
@@ -18,6 +18,6 @@ public record SelfClosingTag : HtmlElement
     public override string Render()
     {
         var attrString = string.Join(" ", Attributes.Select(kvp => $@"{kvp.Key}=""{kvp.Value}"""));
-        return Attributes.Count != 0 ? $@"<{_tag} {attrString} />" : $"<{_tag} />";
+        return Attributes.Count != 0 ? $@"<{Tag} {attrString} />" : $"<{Tag} />";
     }
 }
