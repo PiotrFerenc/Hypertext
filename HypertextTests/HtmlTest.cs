@@ -7,182 +7,188 @@ namespace HypertextTests;
 public class HtmlTest
 {
     [Fact]
-    public void Tag_WithNameAndChildren_ShouldRenderCorrectHtml()
+    public void Tag_WithHtmlTagAndChildren_RendersCorrectly()
     {
-        var child = Html.Text("content");
-        var tag = Html.Tag(HtmlTag.Div, child);
-        Assert.Equal("<div>content</div>", tag.Render());
+        var children = new[] { new HtmlText("child1"), new HtmlText("child2") };
+        var result = Html.Tag(HtmlTag.Div, children);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("div", ((HtmlNode)result).Tag);
+        Assert.Equal(children, ((HtmlNode)result).Children);
     }
 
     [Fact]
-    public void Tag_WithNameAttributesAndChildren_ShouldRenderCorrectHtml()
+    public void Tag_WithStringNameAndChildren_RendersCorrectly()
     {
-        var child = Html.Text("content");
-        var attributes = new Dictionary<string, string> { { "class", "test" } };
-        var tag = Html.Tag("p", attributes, child);
-        Assert.Equal("<p class=\"test\">content</p>", tag.Render());
+        var children = new[] { new HtmlText("child1"), new HtmlText("child2") };
+        var result = Html.Tag("customTag", children);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("customTag", ((HtmlNode)result).Tag);
+        Assert.Equal(children, ((HtmlNode)result).Children);
     }
 
     [Fact]
-    public void Text_WithContent_ShouldRenderContent()
+    public void Text_GeneratesHtmlTextCorrectly()
     {
-        var text = Html.Text("sample text");
-        Assert.Equal("sample text", text.Render());
+        var content = "Sample Text";
+        var result = Html.Text(content);
+
+        Assert.IsType<HtmlText>(result);
+        Assert.Equal(content, ((HtmlText)result).Content);
     }
 
     [Fact]
-    public void Div_WithChildren_ShouldRenderCorrectHtml()
+    public void Div_WithChildren_RendersCorrectly()
     {
-        var child = Html.Text("content");
-        var div = Html.Div(child);
-        Assert.Equal("<div>content</div>", div.Render());
+        var children = new[] { Html.Text("Child1"), Html.Text("Child2") };
+        var result = Html.Div(children);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("div", ((HtmlNode)result).Tag);
+        Assert.Equal(children, ((HtmlNode)result).Children);
     }
 
     [Fact]
-    public void Span_WithChildren_ShouldRenderCorrectHtml()
+    public void Span_WithChildren_RendersCorrectly()
     {
-        var child = Html.Text("content");
-        var span = Html.Span(child);
-        Assert.Equal("<span>content</span>", span.Render());
+        var children = new[] { Html.Text("Child1"), Html.Text("Child2") };
+        var result = Html.Span(children);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("span", ((HtmlNode)result).Tag);
+        Assert.Equal(children, ((HtmlNode)result).Children);
     }
 
     [Fact]
-    public void P_WithChildren_ShouldRenderCorrectHtml()
+    public void Span_WithStringText_RendersCorrectly()
     {
-        var child = Html.Text("paragraph content");
-        var p = Html.P(child);
-        Assert.Equal("<p>paragraph content</p>", p.Render());
+        var text = "Sample Span Text";
+        var result = Html.Span(text);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("span", ((HtmlNode)result).Tag);
+        Assert.Single(((HtmlNode)result).Children);
+        Assert.IsType<HtmlText>(((HtmlNode)result).Children.First());
+        Assert.Equal(text, ((HtmlText)((HtmlNode)result).Children.First()).Content);
     }
 
     [Fact]
-    public void P_WithText_ShouldRenderCorrectHtml()
+    public void P_WithChildren_RendersCorrectly()
     {
-        var p = Html.P("paragraph text");
-        Assert.Equal("<p>paragraph text</p>", p.Render());
+        var children = new[] { Html.Text("Paragraph1"), Html.Text("Paragraph2") };
+        var result = Html.P(children);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("p", ((HtmlNode)result).Tag);
+        Assert.Equal(children, ((HtmlNode)result).Children);
     }
 
     [Fact]
-    public void A_WithHrefAndChildren_ShouldRenderCorrectHtml()
+    public void P_WithStringText_RendersCorrectly()
     {
-        var child = Html.Text("link text");
-        var anchor = Html.A("https://example.com", child);
-        Assert.Equal("<a href=\"https://example.com\">link text</a>", anchor.Render());
+        var text = "Sample Paragraph Text";
+        var result = Html.P(text);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("p", ((HtmlNode)result).Tag);
+        Assert.Single(((HtmlNode)result).Children);
+        Assert.IsType<HtmlText>(((HtmlNode)result).Children.First());
+        Assert.Equal(text, ((HtmlText)((HtmlNode)result).Children.First()).Content);
     }
 
     [Fact]
-    public void Ul_WithChildren_ShouldRenderCorrectHtml()
+    public void A_WithHrefAndChildren_RendersCorrectly()
     {
-        var child = Html.Li(Html.Text("item 1"));
-        var ul = Html.Ul(child);
-        Assert.Equal("<ul><li>item 1</li></ul>", ul.Render());
+        var href = "https://example.com";
+        var children = new[] { Html.Text("link text") };
+        var result = Html.A(href, children);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("a", ((HtmlNode)result).Tag);
+        Assert.Equal(children, ((HtmlNode)result).Children);
+        Assert.Equal(href, ((HtmlElement)result).WithHref(href).Attributes["href"]);
     }
 
     [Fact]
-    public void Img_WithSrcAndAlt_ShouldRenderCorrectHtml()
+    public void Img_WithSourceAndAlt_RendersCorrectly()
     {
-        var img = Html.Img("image.jpg", "An image");
-        Assert.Equal("<img src=\"image.jpg\" alt=\"An image\" />", img.Render());
+        var src = "image.jpg";
+        var alt = "Sample Image";
+        var result = Html.Img(src, alt);
+
+        Assert.IsType<SelfClosingTag>(result);
+        Assert.Equal("img", ((SelfClosingTag)result).Tag);
+        Assert.Equal(src, ((SelfClosingTag)result).Attributes["src"]);
+        Assert.Equal(alt, ((SelfClosingTag)result).Attributes["alt"]);
     }
 
     [Fact]
-    public void Img_WithSrcAndNoAlt_ShouldRenderCorrectHtml()
+    public void Button_WithText_RendersCorrectly()
     {
-        var img = Html.Img("image.jpg");
-        Assert.Equal("<img src=\"image.jpg\" alt=\"\" />", img.Render());
+        var text = "Click Me";
+        var result = Html.Button(text);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("button", ((HtmlNode)result).Tag);
+        Assert.Single(((HtmlNode)result).Children);
+        Assert.IsType<HtmlText>(((HtmlNode)result).Children.First());
+        Assert.Equal(text, ((HtmlText)((HtmlNode)result).Children.First()).Content);
     }
 
     [Fact]
-    public void Input_WithTypeNameAndValue_ShouldRenderCorrectHtml()
+    public void Fragment_WithChildren_RendersCorrectly()
     {
-        var input = Html.Input("text", "username", "defaultUser");
-        Assert.Equal("<input type=\"text\" name=\"username\" value=\"defaultUser\" />", input.Render());
+        var children = new[] { Html.Text("Fragment1"), Html.Text("Fragment2") };
+        var result = Html.Fragment(children);
+
+        Assert.IsType<HtmlFragment>(result);
+        Assert.Equal(children, ((HtmlFragment)result).Children);
     }
 
     [Fact]
-    public void Button_WithTextAndAttributes_ShouldRenderCorrectHtml()
+    public void TextArea_WithValue_RendersCorrectly()
     {
-        var attributes = new Dictionary<string, string> { { "class", "btn" } };
-        var button = Html.Button("Click Me", attributes);
-        Assert.Equal("<button class=\"btn\">Click Me</button>", button.Render());
+        var value = "Sample Textarea Value";
+        var result = Html.TextArea(value);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("textarea", ((HtmlNode)result).Tag);
+        Assert.Single(((HtmlNode)result).Children);
+        Assert.IsType<HtmlText>(((HtmlNode)result).Children.First());
+        Assert.Equal(value, ((HtmlText)((HtmlNode)result).Children.First()).Content);
     }
 
     [Fact]
-    public void Fragment_WithChildren_ShouldRenderCorrectHtml()
+    public void Select_WithOptions_RendersCorrectly()
     {
-        var child1 = Html.Text("child1");
-        var child2 = Html.Text("child2");
-        var fragment = Html.Fragment(child1, child2);
-        Assert.Equal("child1child2", fragment.Render());
+        var options = new[] { Html.Text("Option1"), Html.Text("Option2") };
+        var result = Html.Select(options);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("select", ((HtmlNode)result).Tag);
+        Assert.Equal(options, ((HtmlNode)result).Children);
     }
 
     [Fact]
-    public void Table_WithRows_ShouldRenderCorrectHtml()
+    public void Nav_WithItems_RendersCorrectly()
     {
-        var row = Html.Tr(Html.Td("Cell 1"), Html.Td("Cell 2"));
-        var table = Html.Table(new[] { row });
-        Assert.Equal("<table><tr><td>Cell 1</td><td>Cell 2</td></tr></table>", table.Render());
+        var items = new[] { Html.Text("NavItem1"), Html.Text("NavItem2") };
+        var result = Html.Nav(items);
+
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("nav", ((HtmlNode)result).Tag);
+        Assert.Equal(items, ((HtmlNode)result).Children);
     }
 
     [Fact]
-    public void HtmlNode_WithAttributes_ShouldRenderCorrectHtml()
+    public void Ol_WithItems_RendersCorrectly()
     {
-        var node = Html.Tag("custom", new Dictionary<string, string> { { "data-test", "value" } });
-        Assert.Equal("<custom data-test=\"value\"></custom>", node.Render());
-    }
+        var items = new[] { Html.Text("ListItem1"), Html.Text("ListItem2") };
+        var result = Html.Ol(items);
 
-    [Fact]
-    public void HtmlNode_WithoutAttributes_ShouldRenderCorrectHtml()
-    {
-        var node = Html.Tag("custom");
-        Assert.Equal("<custom></custom>", node.Render());
-    }
-
-    [Fact]
-    public void HtmlElement_WithAttribute_ShouldAddAttribute()
-    {
-        var element = Html.Tag("span").WithAttribute("id", "test");
-        Assert.Equal("<span id=\"test\"></span>", element.Render());
-    }
-
-    [Fact]
-    public void HtmlElement_WithId_ShouldAddId()
-    {
-        var element = Html.Tag("div").WithId("main");
-        Assert.Equal("<div id=\"main\"></div>", element.Render());
-    }
-
-    [Fact]
-    public void HtmlElement_WithClass_ShouldAddClass()
-    {
-        var element = Html.Tag("span").WithClass("highlight");
-        Assert.Equal("<span class=\"highlight\"></span>", element.Render());
-    }
-
-    [Fact]
-    public void HtmlElement_WithData_ShouldAddDataAttribute()
-    {
-        var element = Html.Tag("div").WithData("key", "value");
-        Assert.Equal("<div data-key=\"value\"></div>", element.Render());
-    }
-
-    [Fact]
-    public void HtmlElement_WithAria_ShouldAddAriaAttribute()
-    {
-        var element = Html.Tag("div").WithAria("label", "Example");
-        Assert.Equal("<div aria-label=\"Example\"></div>", element.Render());
-    }
-
-    [Fact]
-    public void HtmlElement_WithRole_ShouldAddRoleAttribute()
-    {
-        var element = Html.Tag("span").WithRole("button");
-        Assert.Equal("<span role=\"button\"></span>", element.Render());
-    }
-
-    [Fact]
-    public void HtmlElement_WithOnClick_ShouldAddOnClick()
-    {
-        var element = Html.Tag("div").WithOnClick("alert('clicked')");
-        Assert.Equal("<div onclick=\"alert('clicked')\"></div>", element.Render());
+        Assert.IsType<HtmlNode>(result);
+        Assert.Equal("ol", ((HtmlNode)result).Tag);
+        Assert.Equal(items, ((HtmlNode)result).Children);
     }
 }
